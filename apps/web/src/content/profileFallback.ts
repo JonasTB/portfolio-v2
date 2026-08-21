@@ -3,7 +3,7 @@ import type { Profile } from '@portfolio/contracts';
 /**
  * Cópia local do perfil (mesma fonte que apps/api/src/content/profile.ts).
  * Usada como `initialData` da query — a Home/About nunca ficam em branco,
- * mesmo se a API estiver indisponível (graceful degradation, TECHNICAL_ARCHITECTURE.md).
+ * mesmo se a API estiver indisponível (graceful degradation, docs/architecture.md).
  */
 export const profileFallback: Profile = {
   name: 'Jonas Timbaúba',
@@ -21,6 +21,7 @@ export const profileFallback: Profile = {
     'en-US':
       'Backend-leaning software engineer, equally comfortable in the frontend. I like solving system problems with clarity and simplicity.',
   },
+  photo: 'https://github.com/JonasTB.png',
   location: 'Fortaleza, Brasil',
   specialties: ['Backend', 'Frontend', 'System Design'],
   currently: {

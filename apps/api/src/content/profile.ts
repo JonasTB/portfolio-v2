@@ -2,9 +2,10 @@ import { profileSchema } from '@portfolio/contracts';
 import type { Profile } from '@portfolio/contracts';
 
 /**
- * Fonte de verdade do perfil (ETAPA 05/06). `photo` e `resumeUrl` ficam
- * ausentes até que os arquivos reais sejam fornecidos — o frontend
- * degrada graciosamente (iniciais no lugar de foto, sem CTA de CV quebrado).
+ * Fonte de verdade do perfil (ETAPA 05/06). `photo` usa o avatar público
+ * do GitHub (github.com/JonasTB.png) por decisão do dono do portfólio.
+ * `resumeUrl` fica ausente até que o arquivo real seja fornecido — o
+ * frontend degrada graciosamente (sem CTA de CV quebrado).
  *
  * `professional` é um rascunho honesto a partir do que é verificável
  * (educação, paixão por backend) — sem inventar empregador ou projeto.
@@ -27,6 +28,7 @@ const rawProfile: Profile = {
     'en-US':
       'Backend-leaning software engineer, equally comfortable in the frontend. I like solving system problems with clarity and simplicity.',
   },
+  photo: 'https://github.com/JonasTB.png',
   location: 'Fortaleza, Brasil',
   specialties: ['Backend', 'Frontend', 'System Design'],
   currently: {
