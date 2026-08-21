@@ -21,6 +21,7 @@ Workflow: [`.github/workflows/ci.yml`](../.github/workflows/ci.yml).
 - **Job `ci`**: `pnpm install --frozen-lockfile` → `lint` → `typecheck` → `format:check` → `test` (unit, web+api) → `test:e2e` (api) → `build` (web+api, via Turborepo).
 - **Job `docker`** (depende de `ci` passar): builda `apps/api/Dockerfile` a partir da raiz do monorepo, sem publicar a imagem — só valida que o Dockerfile de produção continua buildando.
 - Cache de dependências via `actions/setup-node` (pnpm store) — sem cache remoto do Turborepo por enquanto (execução solo, custo de configurar > benefício agora, conforme risco #3 de `docs/architecture.md`).
+- **Node 22 no runner** (`engines.node` da raiz também foi elevado para `>=22`). Descoberto nesta etapa: `jsdom@30` (devDependency de `apps/web`, usada pelo Vitest) falha em Node 20 com `webidl.util.markAsUncloneable is not a function` — API interna do Node que só existe a partir da 22. Não afeta a imagem Docker da API (`node:20-alpine`), porque `jsdom` é devDependency só do `apps/web` e nunca entra no runtime da API.
 
 Nenhum secret é necessário para este workflow — ele não toca em GitHub API real, Resend, nem nada autenticado; os testes usam fallback/mocks.
 
