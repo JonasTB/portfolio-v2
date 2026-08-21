@@ -1,0 +1,15 @@
+{
+  "name": "@portfolio/config",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./eslint/base.js",
+  "exports": {
+    "./tsconfig.base.json": "./tsconfig.base.json",
+    "./eslint/base": "./eslint/base.js"
+  },
+  "dependencies": {
+    "@eslint/js": "^10.0.1",
+    "typescript-eslint": "^8.67.0"
+  }
+}
