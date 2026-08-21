@@ -3,7 +3,6 @@ import { useLocale } from '../app/providers/useLocale';
 import { useLocalizedText } from '../hooks/useLocalizedText';
 import { useProfile } from '../hooks/useProfile';
 import { useDocumentHead } from '../hooks/useDocumentHead';
-import { InterestsGrid } from '../components/about/InterestsGrid';
 import { Container, Heading, Section } from '../components/ui';
 
 function ProfessionalParagraph({ paragraph }: { paragraph: LocalizedText }) {
@@ -31,13 +30,6 @@ export function AboutPage() {
               <ProfessionalParagraph key={index} paragraph={paragraph} />
             ))}
           </div>
-        </div>
-
-        <div className="mt-12">
-          <Heading as="h2" size="h4" className="mb-6 text-text-tertiary uppercase">
-            {t('about.personal.title')}
-          </Heading>
-          <InterestsGrid interests={profile.interests} />
         </div>
       </Container>
     </Section>

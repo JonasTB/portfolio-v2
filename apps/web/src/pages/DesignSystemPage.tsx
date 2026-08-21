@@ -148,8 +148,8 @@ export function DesignSystemPage() {
               <Link href="#" variant="accent">
                 Link accent
               </Link>
-              <Avatar alt="Jonas Timbáuba" fallback="JT" />
-              <Avatar alt="Jonas Timbáuba" fallback="JT" size="lg" />
+              <Avatar alt="Jonas Timbaúba" fallback="JT" />
+              <Avatar alt="Jonas Timbaúba" fallback="JT" size="lg" />
             </div>
           </Section>
 

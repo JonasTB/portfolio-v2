@@ -37,7 +37,7 @@ export function Logo({ className }: { className?: string }) {
       viewBox="0 0 32 32"
       className={cn(className, celebrating && 'motion-safe:animate-bounce')}
       role="img"
-      aria-label="Jonas Timbáuba"
+      aria-label="Jonas Timbaúba"
       onClick={handleClick}
     >
       <rect width="32" height="32" rx="9" className="fill-accent" />

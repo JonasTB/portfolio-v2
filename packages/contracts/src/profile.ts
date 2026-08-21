@@ -1,7 +1,6 @@
 import { z } from 'zod';
 import { localizedTextSchema } from './localized-text.js';
 import { socialLinksSchema } from './social-links.js';
-import { interestsSchema } from './interests.js';
 
 export const profileSchema = z.object({
   name: z.string(),
@@ -19,7 +18,6 @@ export const profileSchema = z.object({
   professional: z.object({
     paragraphs: z.array(localizedTextSchema),
   }),
-  interests: interestsSchema,
   resumeUrl: z.string().optional(),
   social: socialLinksSchema,
 });

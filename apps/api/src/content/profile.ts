@@ -6,13 +6,13 @@ import type { Profile } from '@portfolio/contracts';
  * ausentes até que os arquivos reais sejam fornecidos — o frontend
  * degrada graciosamente (iniciais no lugar de foto, sem CTA de CV quebrado).
  *
- * `professional` e `interests` são um rascunho honesto a partir do que é
- * verificável (educação, paixão por backend, música/séries/games) — sem
- * inventar empregador, projeto ou favorito específico. Revisar com o dono
- * do portfólio antes de considerar definitivo.
+ * `professional` é um rascunho honesto a partir do que é verificável
+ * (educação, paixão por backend) — sem inventar empregador ou projeto.
+ * A seção de interesses pessoais (About) foi removida na ETAPA 19 por
+ * decisão do dono do portfólio, em vez de preencher com placeholder.
  */
 const rawProfile: Profile = {
-  name: 'Jonas Timbáuba',
+  name: 'Jonas Timbaúba',
   role: {
     'pt-BR': 'Engenheiro de Software / Full-stack Developer',
     'en-US': 'Software Engineer / Full-stack Developer',
@@ -56,13 +56,6 @@ const rawProfile: Profile = {
           'The problems I enjoy most involve systems — data modeling, integrations, architecture decisions that need to age well. I work incrementally, documenting decisions and validating early.',
       },
     ],
-  },
-  interests: {
-    music: ['Plays instruments'],
-    series: ['TV series'],
-    films: ['Movies'],
-    games: ['Video games'],
-    other: ['Nerd culture', 'Technology'],
   },
   social: {
     github: 'https://github.com/JonasTB',

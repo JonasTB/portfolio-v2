@@ -8,7 +8,7 @@ interface DocumentHeadOptions {
   type?: 'website' | 'article';
   /** Marca a página como não-indexável (ex.: página interna de validação). */
   noindex?: boolean;
-  /** Usa `title` como o `<title>` completo, sem anexar "— Jonas Timbáuba" (ex.: Home). */
+  /** Usa `title` como o `<title>` completo, sem anexar "— Jonas Timbaúba" (ex.: Home). */
   raw?: boolean;
 }
 
@@ -43,7 +43,7 @@ export function useDocumentHead({
 }: DocumentHeadOptions) {
   useEffect(() => {
     const previousTitle = document.title;
-    const fullTitle = raw ? title : `${title} — Jonas Timbáuba`;
+    const fullTitle = raw ? title : `${title} — Jonas Timbaúba`;
     document.title = fullTitle;
 
     const url = `${window.location.origin}${path ?? window.location.pathname}`;

@@ -8,7 +8,7 @@ import type { GithubIntegration } from '@portfolio/contracts';
 export const githubFallback: GithubIntegration = {
   profile: {
     login: 'JonasTB',
-    name: 'Jonas Timbáuba',
+    name: 'Jonas Timbaúba',
     avatarUrl: 'https://github.com/JonasTB.png',
     bio: null,
     url: 'https://github.com/JonasTB',

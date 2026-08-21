@@ -2,7 +2,6 @@ export * from './activity.js';
 export * from './contact.js';
 export * from './experience.js';
 export * from './github.js';
-export * from './interests.js';
 export * from './journey.js';
 export * from './lab.js';
 export * from './localized-text.js';

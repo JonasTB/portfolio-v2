@@ -15,7 +15,7 @@ export function Footer() {
         className="flex flex-col items-center gap-4 py-10 text-sm text-text-tertiary sm:flex-row sm:justify-between"
       >
         <p>
-          © {year} Jonas Timbáuba — {t('footer.rights')}
+          © {year} Jonas Timbaúba — {t('footer.rights')}
         </p>
         <div className="flex items-center gap-4">
           <span className="font-mono text-xs">{t('footer.builtWith')}</span>

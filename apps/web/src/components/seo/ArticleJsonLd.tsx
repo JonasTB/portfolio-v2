@@ -11,7 +11,7 @@ export function ArticleJsonLd({ post }: { post: Post }) {
         description: post.description,
         datePublished: post.date,
         url: window.location.href,
-        author: { '@type': 'Person', name: 'Jonas Timbáuba' },
+        author: { '@type': 'Person', name: 'Jonas Timbaúba' },
         keywords: post.tags.join(', '),
       }}
     />

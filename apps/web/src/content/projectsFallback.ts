@@ -77,9 +77,9 @@ export const projectsFallback: Project[] = [
       },
       outcome: {
         'pt-BR':
-          'Em construção — fundação, design system, app shell, Home, About, Journey, Work e Projects (esta própria página) já implementados e validados; Posts, Lab, integrações e polimento final seguem nas próximas etapas.',
+          'Site completo e no ar: todas as páginas, integração real com a API do GitHub (com fallback), activity feed agregando GitHub/posts/projetos, formulário de contato funcional, easter eggs discretos, SEO/performance/acessibilidade auditados, suíte de testes e pipeline de CI/CD com deploy via Docker. Dezenove etapas, uma por vez, sem pular validação.',
         'en-US':
-          'Work in progress — foundation, design system, app shell, Home, About, Journey, Work and Projects (this very page) are already implemented and validated; Posts, Lab, integrations and final polish are still ahead.',
+          'Complete site, live: every page, real GitHub API integration (with fallback), an activity feed aggregating GitHub/posts/projects, a working contact form, discreet easter eggs, audited SEO/performance/accessibility, a test suite, and a CI/CD pipeline with Docker-based deploys. Nineteen steps, one at a time, no skipped validation.',
       },
     },
   },

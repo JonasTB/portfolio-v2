@@ -16,7 +16,7 @@ export function Header() {
           className="flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
         >
           <Logo className="h-8 w-8" />
-          <span className="font-heading text-sm font-medium text-text">Jonas Timbáuba</span>
+          <span className="font-heading text-sm font-medium text-text">Jonas Timbaúba</span>
         </RouterLink>
 
         <div className="flex items-center gap-1">

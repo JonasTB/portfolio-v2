@@ -6,7 +6,7 @@ import type { Profile } from '@portfolio/contracts';
  * mesmo se a API estiver indisponível (graceful degradation, TECHNICAL_ARCHITECTURE.md).
  */
 export const profileFallback: Profile = {
-  name: 'Jonas Timbáuba',
+  name: 'Jonas Timbaúba',
   role: {
     'pt-BR': 'Engenheiro de Software / Full-stack Developer',
     'en-US': 'Software Engineer / Full-stack Developer',
@@ -50,13 +50,6 @@ export const profileFallback: Profile = {
           'The problems I enjoy most involve systems — data modeling, integrations, architecture decisions that need to age well. I work incrementally, documenting decisions and validating early.',
       },
     ],
-  },
-  interests: {
-    music: ['Plays instruments'],
-    series: ['TV series'],
-    films: ['Movies'],
-    games: ['Video games'],
-    other: ['Nerd culture', 'Technology'],
   },
   social: {
     github: 'https://github.com/JonasTB',
