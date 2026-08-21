@@ -2,9 +2,9 @@
 
 ## Visão geral
 
-| Camada | Onde roda | Como builda | Como implanta |
-| --- | --- | --- | --- |
-| `apps/web` | Vercel (estático) | `vite build` (via `pnpm build`) | Integração Git nativa da Vercel |
+| Camada     | Onde roda           | Como builda                                        | Como implanta                                   |
+| ---------- | ------------------- | -------------------------------------------------- | ----------------------------------------------- |
+| `apps/web` | Vercel (estático)   | `vite build` (via `pnpm build`)                    | Integração Git nativa da Vercel                 |
 | `apps/api` | Railway (container) | `apps/api/Dockerfile` (multi-stage, `turbo prune`) | Integração Git nativa da Railway (Docker-first) |
 
 CI (GitHub Actions) é um **gate de qualidade em Pull Requests** — `install → lint → typecheck → format:check → test → test:e2e → build`, mais um job que builda a imagem Docker da API para garantir que o `Dockerfile` continua funcionando. Ele **não implanta nada**: Vercel e Railway têm integração nativa com o repositório Git e fazem deploy por conta própria a cada push (ver seções abaixo). Isso evita duplicar lógica de deploy em dois lugares — decisão consciente pela opção mais simples (`CLAUDE.md`: simplicidade > arquitetura).
@@ -75,24 +75,24 @@ Referência completa em [`.env.example`](../.env.example). Nunca commitar `.env`
 
 ### `apps/api` (Railway)
 
-| Variável | Obrigatória | Descrição |
-| --- | --- | --- |
-| `PORT` | não (Railway injeta) | Porta HTTP. Default `3000`. |
-| `WEB_URL` | **sim** | Origem permitida no CORS. Em produção, a URL pública do `apps/web` na Vercel. |
-| `GITHUB_USERNAME` | sim (para GitHub real) | Username usado pela `GithubModule`. Sem isso, cai no fallback local. |
-| `GITHUB_TOKEN` | sim (para GitHub real) | Token da API oficial do GitHub (read-only). Sem isso, cai no fallback local. |
-| `CONTACT_EMAIL` | sim (para contato real) | E-mail de destino do formulário de contato. |
-| `WHATSAPP_NUMBER` | sim | Número usado no link `wa.me`. |
-| `WHATSAPP_DEFAULT_MESSAGE` | não | Mensagem pré-preenchida do `wa.me`. Tem default no código. |
-| `MAIL_PROVIDER` | não | Se vazio, `ContactModule` usa um provider "Unavailable" com graceful degradation — endpoint responde indicando que o envio por e-mail está temporariamente indisponível, sem quebrar o formulário. |
-| `RESEND_API_KEY` | não (por decisão) | Fica em branco por escolha do usuário — arquitetura pronta (`ResendMailProvider`), só falta a chave. Preencher quando decidir ativar envio de e-mail real. |
-| `LINKEDIN_CLIENT_ID` / `LINKEDIN_CLIENT_SECRET` | não | Só usar se uma integração oficial do LinkedIn for implementada (não é o caso hoje — ver `docs/integrations.md`). |
+| Variável                                        | Obrigatória             | Descrição                                                                                                                                                                                          |
+| ----------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PORT`                                          | não (Railway injeta)    | Porta HTTP. Default `3000`.                                                                                                                                                                        |
+| `WEB_URL`                                       | **sim**                 | Origem permitida no CORS. Em produção, a URL pública do `apps/web` na Vercel.                                                                                                                      |
+| `GITHUB_USERNAME`                               | sim (para GitHub real)  | Username usado pela `GithubModule`. Sem isso, cai no fallback local.                                                                                                                               |
+| `GITHUB_TOKEN`                                  | sim (para GitHub real)  | Token da API oficial do GitHub (read-only). Sem isso, cai no fallback local.                                                                                                                       |
+| `CONTACT_EMAIL`                                 | sim (para contato real) | E-mail de destino do formulário de contato.                                                                                                                                                        |
+| `WHATSAPP_NUMBER`                               | sim                     | Número usado no link `wa.me`.                                                                                                                                                                      |
+| `WHATSAPP_DEFAULT_MESSAGE`                      | não                     | Mensagem pré-preenchida do `wa.me`. Tem default no código.                                                                                                                                         |
+| `MAIL_PROVIDER`                                 | não                     | Se vazio, `ContactModule` usa um provider "Unavailable" com graceful degradation — endpoint responde indicando que o envio por e-mail está temporariamente indisponível, sem quebrar o formulário. |
+| `RESEND_API_KEY`                                | não (por decisão)       | Fica em branco por escolha do usuário — arquitetura pronta (`ResendMailProvider`), só falta a chave. Preencher quando decidir ativar envio de e-mail real.                                         |
+| `LINKEDIN_CLIENT_ID` / `LINKEDIN_CLIENT_SECRET` | não                     | Só usar se uma integração oficial do LinkedIn for implementada (não é o caso hoje — ver `docs/integrations.md`).                                                                                   |
 
 ### `apps/web` (Vercel)
 
-| Variável | Obrigatória | Descrição |
-| --- | --- | --- |
-| `VITE_API_URL` | sim | Base URL da API em produção, ex. `https://api.<dominio>/api/v1`. Sem isso, cai no default `http://localhost:3000/api/v1` (`apps/web/src/lib/api.ts`), o que quebra em produção. |
+| Variável       | Obrigatória | Descrição                                                                                                                                                                       |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `VITE_API_URL` | sim         | Base URL da API em produção, ex. `https://api.<dominio>/api/v1`. Sem isso, cai no default `http://localhost:3000/api/v1` (`apps/web/src/lib/api.ts`), o que quebra em produção. |
 
 ---
 
